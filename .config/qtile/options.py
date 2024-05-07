@@ -1,0 +1,12 @@
+default_colorscheme = "catppuccin_macchiato"
+gaps_size = 8
+mod = "mod4"  # Super key
+mod2 = "mod1"  # Alt key
+terminal = "kitty"
+web_browser = "google-chrome-stable"
+file_manager = "thunar"
+notify_cmd = 'dunstify -u low -h string:x-dunst-stack-tag:qtileconfig'
+system_font = "JetbrainsMono Nerd Bold"
+rofi_drun = "rofi -show drun -show-icons"
+rofi_power = "sh -c ~/.config/rofi/scripts/power"
+lock_screen = "betterlockscreen -l blur"
