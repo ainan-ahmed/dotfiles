@@ -108,6 +108,9 @@ alias dcu="docker-compose up"
 alias dcd="docker-compose down"
 alias vim="nvim"
 alias pacsize_top10="expac -H M '%m\t%n' | sort -hr | head -10"
+alias ls="eza --color=always --icons=always --long --git --no-permissions --no-user --no-time  --group-directories-first"
+alias cd="z"
+
 export EDITOR=/usr/bin/nvim
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 
@@ -116,3 +119,6 @@ export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+eval "$(zoxide init zsh)"
+eval "$(fzf --zsh)"
