@@ -17,6 +17,6 @@ opt.termguicolors = true
 opt.showmode = false -- Dont show mode since we have a statusline
 g.clipboard = "CopyQ" -- Sync wit system clipboard
 g.smoothscroll = true
-
 g.mapleader = " "
 g.autoformat = true
+g.autochdir = true

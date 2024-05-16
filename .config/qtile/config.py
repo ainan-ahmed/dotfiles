@@ -233,14 +233,14 @@ mouse = [
 #############################################
 
 
-groups = [Group(name="1", label="󰏃", spawn=[web_browser]),
-          Group(name="2", label="󰏃"),
-          Group(name="3", label="󰏃"),
-          Group(name="4", label="󰏃"),
-          Group(name="5", label="󰏃"),
-          Group(name="6", label="󰏃"),
-          Group(name="7", label="󰏃"),
-          Group(name="8", label="󰏃"),
+groups = [Group(name="1" , spawn=[web_browser]),
+          Group(name="2"),
+          Group(name="3"),
+          Group(name="4"),
+          Group(name="5"),
+          Group(name="6"),
+          Group(name="7"),
+          Group(name="8"),
 
           ]
 

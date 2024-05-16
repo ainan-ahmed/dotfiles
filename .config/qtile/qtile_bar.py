@@ -1,3 +1,4 @@
+import os
 from functions import power, toggle_program
 from helpers import load_module
 from libqtile import bar
@@ -6,12 +7,11 @@ from qtile_extras import widget
 import options
 from libqtile.lazy import lazy
 from qtile_extras.widget.decorations import RectDecoration
-import os
 colorscheme_module_path = f"themes.{options.default_colorscheme}"
 colors = load_module(colorscheme_module_path)
 widget_defaults = dict(
     font=options.system_font,
-    fontsize=12,
+    fontsize=2,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
@@ -19,13 +19,13 @@ extension_defaults = widget_defaults.copy()
 screens = [
     Screen(
         top=bar.Bar(
-            widgets=[  # type: ignore
+            widgets=[
                 widget.TextBox(
                     foreground=colors.app_launcher_colors["fg"],
                     # background=colors.app_launcher_colors["bg"],
                     padding=10,
                     fontsize=20,
-                    # margin=3,
+                     margin=5,
                     fmt="󰣇",
                     # fmt="󰕰",
                     font="FontAwesome",
@@ -33,20 +33,20 @@ screens = [
                         "Button1": lazy.spawn(options.rofi_drun),
                     },
                 ),
-                widget.Spacer(length=5),
+                widget.Spacer(length=10),
                 widget.GroupBox(fontsize=15,
                                 borderwidth=5,
-                                highlight_method='block',
+                                highlight_method='line',
                                 active=colors.groupbox_colors["fg_active"],
-                                block_highlight_text_color=colors.groupbox_colors["hl_text"],
-                                highlight_color=colors.groupbox_colors["hl_text"],
+                                #block_highlight_text_color=colors.groupbox_colors["hl_text"],
+                                #highlight_color=colors.groupbox_colors["hl_text"],
                                 inactive=colors.groupbox_colors["fg_inactive"],
-                                foreground=colors.groupbox_colors["fg"],
+                                #foreground=colors.groupbox_colors["fg"],
                                 background=colors.groupbox_colors["bg"],
-                                this_current_screen_border=colors.groupbox_colors["bg_focus"],
-                                this_screen_border=colors.groupbox_colors["bg"],
-                                other_current_screen_border=colors.groupbox_colors["bg"],
-                                other_screen_border=colors.groupbox_colors["bg"],
+                                this_current_screen_border=colors.groupbox_colors["hl_text"],
+                                this_screen_border=colors.groupbox_colors["hl_text"],
+                                other_current_screen_border=colors.groupbox_colors["hl_text"],
+                                other_screen_border=colors.groupbox_colors["hl_text"],
                                 urgent_border=colors.groupbox_colors["bg_urgent"],
                                 rounded=True,
                                 disable_drag=True,),
@@ -54,7 +54,7 @@ screens = [
                 widget.CurrentLayoutIcon(
                     use_mask=True, foreground=colors.other_colors["fg"], scale=.8),
                 widget.CurrentLayout(use_mask=True,
-                                     foreground=colors.other_colors["fg"],),
+                                     foreground=colors.other_colors["fg"]),
                 widget.Spacer(length=5),
                 widget.Sep(
                     foreground=colors.other_colors["fg"], size_percent=70),
@@ -64,6 +64,8 @@ screens = [
                 widget.Spacer(),
                 widget.Clock(format="%d.%m.%Y %a %I:%M %p",
                              foreground=colors.other_colors["fg"]),
+                #widget.Spacer(),
+                #widget.LaunchBar(progs=['Chrome','google-chrome-stable',"Launch Google Chrome"]),
                 widget.Spacer(),
                 widget.Volume(font=options.system_font, emoji=False, fontSize=15,
                               get_volume_command=os.path.expanduser(

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Monitor Configuaration script
-#sh ~/.screenlayout/monitorLayout.sh &
+sh ~/.screenlayout/monitorLayout.sh &
 # Picom compositor
 picom --config ~/.config/picom/picom.conf -b &
 # Notification Deamon

@@ -7,6 +7,7 @@
     fg-col: #cdd6f4;
     fg-col2: #f38ba8;
     grey: #6c7086;
+    tropical-violet: #caa9e0;
 
     width: 600;
     font: "JetBrainsMono Nerd Font 14";
@@ -36,7 +37,7 @@ inputbar {
 }
 
 prompt {
-    background-color: @blue;
+    background-color: @tropical-violet;
     padding: 6px;
     text-color: @bg-col;
     border-radius: 3px;
@@ -75,8 +76,8 @@ element-icon {
 }
 
 element selected {
-    background-color:  @selected-col ;
-    text-color: @fg-col2  ;
+    background-color:  @tropical-violet ;
+    text-color: @bg-col  ;
 }
 
 mode-switcher {
