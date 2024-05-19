@@ -7,6 +7,7 @@ return {
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
     },
+    config = function()
     opts = {
     sources = { "filesystem", "buffers", "git_status", "document_symbols" },
     open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
@@ -18,8 +19,7 @@ return {
 
     },
     },
-    config = function()
-    vim.keymap.set('n','<C-n>', ':Neotree source=filesystem reveal=true position=left toggle=true<CR>') 
+   vim.keymap.set('n','<C-n>', ':Neotree source=filesystem :reveal=true position=left toggle=true<CR>') 
     end
 
 }

@@ -192,13 +192,19 @@ keys = [
     Key(["control","mod1"],"Delete",lazy.spawn(rofi_power),desc="Shutdown menu"),
     
     # Volume
-    Key([], "XF86AudioLowerVolume", "pactl set-sink-volume @DEFAULT_SINK@ -5%"),
-    Key([], "XF86AudioRaiseVolume", "pactl set-sink-volume @DEFAULT_SINK@ +5%"),
-    Key([], "XF86AudioMute", "pactl set-sink-mute @DEFAULT_SINK@ toggle"),
-    
+    Key([], "XF86AudioLowerVolume",lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ 10%-"),
+        desc="Lower Volume by 10%"),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%"),
+        desc = "Raise volume by 10%"),
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"), 
+        desc = "Mute/Unmute volume"),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl --player=spotify,%any play-pause"), 
+        desc="Play/Pause player"),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl --player=spotify,%any next"), desc="Skip to next"),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl --player=spotify,%any previous"), desc="Skip to previous"),
     # Brightness
-    Key([], "XF86MonBrightnessUp", "brightnessctl set +10%"),
-    Key([], "XF86MonBrightnessDown", "brightnessctl set 10%-"),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 ]
 
 # # Add key bindings to switch VTs in Wayland.

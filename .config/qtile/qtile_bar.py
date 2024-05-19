@@ -53,27 +53,18 @@ screens = [
                 widget.Spacer(length=5),
                 widget.CurrentLayoutIcon(
                     use_mask=True, foreground=colors.other_colors["fg"], scale=.8),
-                widget.CurrentLayout(use_mask=True,
-                                     foreground=colors.other_colors["fg"]),
+                #widget.CurrentLayout(use_mask=True,
+               #                      foreground=colors.other_colors["fg"]),
                 widget.Spacer(length=5),
                 widget.Sep(
                     foreground=colors.other_colors["fg"], size_percent=70),
                 widget.Spacer(length=5),
                 widget.WindowName(
-                    format="{class}", foreground=colors.other_colors["fg"],),
+                    format="{class}", foreground=colors.other_colors["fg"]),
                 widget.Spacer(),
                 widget.Clock(format="%d.%m.%Y %a %I:%M %p",
                              foreground=colors.other_colors["fg"]),
-                #widget.Spacer(),
-                #widget.LaunchBar(progs=['Chrome','google-chrome-stable',"Launch Google Chrome"]),
                 widget.Spacer(),
-                widget.Volume(font=options.system_font, emoji=False, fontSize=15,
-                              get_volume_command=os.path.expanduser(
-                                  "~/.config/qtile/scripts/get-volume.sh",
-                              ), fmt='Vol: {}', padding=10,
-                              mouse_callbacks={
-                                  "Button1": toggle_program("pavucontrol")},
-                              ),
                 widget.Systray(decorations=[
                     RectDecoration(
                         colour=colors.other_colors["fg"],

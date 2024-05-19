@@ -20,3 +20,6 @@ g.smoothscroll = true
 g.mapleader = " "
 g.autoformat = true
 g.autochdir = true
+
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>')
+

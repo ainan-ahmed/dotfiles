@@ -24,7 +24,8 @@ layouts = [
     # layout.Matrix(),
 
     # layout.MonadWide(),
-    # layout.RatioTile(),
+    layout.Spiral(border_focus = colors.client_colors["border_focus"],
+                     border_normal=colors.client_colors["border"],border_width=3,margin=gaps_size, new_client_position= 'after_current'),
     # layout.Tile(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
@@ -43,6 +44,7 @@ floating_layout = layout.Floating(
         Match(wm_class="Nitrogen"),
         Match(wm_class="Pavucontrol"),
         Match(title='Bitwarden'),
+        Match(title='Lightdm-gtk-greeter-settings'),
         #
         Match(wm_class='confirm'),
      Match(wm_class='dialog'),
@@ -56,6 +58,6 @@ floating_layout = layout.Floating(
      Match(wm_class='makebranch'),
      Match(wm_class='maketag'),
      Match(title='branchdialog'),
-        Match(title='pop-up'),
+     Match(title='pop-up'),
     ]
 )
