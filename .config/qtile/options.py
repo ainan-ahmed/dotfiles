@@ -1,4 +1,4 @@
-default_colorscheme = "catppuccin_macchiato"
+default_colorscheme = "gruvbox"
 gaps_size = 8
 mod = "mod4"  # Super key
 mod2 = "mod1"  # Alt key

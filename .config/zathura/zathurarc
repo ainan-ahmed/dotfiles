@@ -10,15 +10,23 @@ set pages-per-row 1
 
 #stop at page boundries
 set scroll-page-aware "true"
+set smooth-scroll "true"
 set scroll-full-overlap 0.01
 set scroll-step 100
 
+set font "bitter medium 15"
+
+
 
 set recolor "true"
+set recolor-reverse-video "true"
+set recolor-keephue "true"
 map <C-i> recolor
+
+
 # Enable copy to clipboard
 set selection-clipboard clipboard
 
 
 # Theme
-include catppuccin-mocha
+include gruvbox_dark_hard
