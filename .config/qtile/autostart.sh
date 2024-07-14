@@ -2,6 +2,8 @@
 
 # Monitor Configuaration script
 sh ~/.screenlayout/monitorLayout.sh &
+# AutoConnect Alexa
+sh ~/.config/scripts/btAutoConnect.sh &
 # Picom compositor
 picom --config ~/.config/picom/picom.conf -b &
 # Notification Deamon
@@ -18,4 +20,3 @@ blueman-applet &
 pasystray &
 # Bluelight filter
 redshift-gtk &
-

@@ -64,13 +64,14 @@ screens = [
                 widget.Clock(
                     format="%d.%m.%Y %a %I:%M %p",
                     fontSize=15,
+                    # background=colors.foreground,
                 ),
                 widget.Spacer(),
                 widget.Systray(
                     decorations=[
                         RectDecoration(
-                            colour=colors.foreground,
-                            line_colour=colors.foreground,
+                            colour=colors.background,
+                            # line_colour=colors.foreground,
                             radius=5,
                             # filled=True,
                             group=True,
@@ -80,8 +81,6 @@ screens = [
                 ),
                 widget.Spacer(length=-5),
                 widget.TextBox(
-                    # foreground=colors.foreground,
-                    # background=colors.background,
                     padding=15,
                     fontsize=15,
                     margin=3,
