@@ -68,14 +68,15 @@ screens = [
                 ),
                 widget.Spacer(),
                 widget.Systray(
+                    # background=colors.background,
                     decorations=[
                         RectDecoration(
-                            colour=colors.background,
+                            colour=colors.foreground,
                             # line_colour=colors.foreground,
                             radius=5,
-                            # filled=True,
+                            filled=True,
                             group=True,
-                            # use_widget_background=True,
+                            use_widget_background=True,
                         )
                     ],
                 ),
