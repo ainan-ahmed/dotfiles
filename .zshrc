@@ -110,7 +110,7 @@ alias vim="nvim"
 alias pacsize_top10="expac -H M '%m\t%n' | sort -hr | head -10"
 alias ls="eza --color=always --icons=always --long --git --no-permissions --no-user --no-time  --group-directories-first"
 alias cd="z"
-
+zstyle ':completion:*' completer _expand_alias _complete _ignored
 export EDITOR=/usr/bin/nvim
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 
