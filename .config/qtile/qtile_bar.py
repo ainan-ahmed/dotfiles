@@ -68,17 +68,7 @@ screens = [
                 ),
                 widget.Spacer(),
                 widget.Systray(
-                    # background=colors.background,
-                    decorations=[
-                        RectDecoration(
-                            colour=colors.foreground,
-                            # line_colour=colors.foreground,
-                            radius=5,
-                            filled=True,
-                            group=True,
-                            use_widget_background=True,
-                        )
-                    ],
+                    background=colors.background,
                 ),
                 widget.Spacer(length=-5),
                 widget.TextBox(

@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
 # Monitor Configuaration script
-sh ~/.screenlayout/monitorLayout.sh &
+# sh ~/.screenlayout/monitorLayout.sh &
 # AutoConnect Alexa
 sh ~/.config/scripts/btAutoConnect.sh &
 # Picom compositor
@@ -20,3 +20,6 @@ blueman-applet &
 pasystray &
 # Bluelight filter
 redshift-gtk &
+
+# touchpad gestures
+fusuma -d &

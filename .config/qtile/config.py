@@ -52,9 +52,8 @@ rofi_power = options.rofi_power
 @hook.subscribe.startup_once
 def autostart():
     script = os.path.expanduser("~/.config/qtile/autostart.sh")
-    subprocess.run(["/usr/bin/dex", "-a"])
     # mybar.window.window.set_property("QTILE_BAR", 1, "CARDINAL", 32)
-    subprocess.run([script])
+    subprocess.call(script)
 
 
 # Floating dialogs
