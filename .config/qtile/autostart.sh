@@ -1,9 +1,12 @@
 #!/bin/sh
 
 # Monitor Configuaration script
-# sh ~/.screenlayout/monitorLayout.sh &
+sh ~/.screenlayout/monitorSetup.sh &
 # AutoConnect Alexa
-sh ~/.config/scripts/btAutoConnect.sh &
+# sh ~/.config/scripts/btAutoConnect.sh &
+#
+# Kwallet
+/usr/lib/pam_kwallet_init &
 # Picom compositor
 picom --config ~/.config/picom/picom.conf -b &
 # Notification Deamon
@@ -17,7 +20,7 @@ nm-applet &
 # Bluetooth applet
 blueman-applet &
 # Volume control applet
-pasystray &
+# pasystray &
 # Bluelight filter
 redshift-gtk &
 

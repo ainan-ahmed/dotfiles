@@ -1,4 +1,4 @@
-default_colorscheme = "gruvbox"
+default_colorscheme = "everforest"
 gaps_size = 8
 mod = "mod4"  # Super key
 mod2 = "mod1"  # Alt key
@@ -7,6 +7,6 @@ web_browser = "google-chrome-stable"
 file_manager = "thunar"
 notify_cmd = "dunstify -u low -h string:x-dunst-stack-tag:qtileconfig"
 system_font = "JetbrainsMono Nerd Bold"
-rofi_drun = "rofi -show drun -show-icons"
-rofi_power = "sh -c ~/.config/rofi/scripts/power"
+rofi_drun = "rofi -show drun -show-icons -theme ~/.config/rofi/scripts/launcher.rasi"
+rofi_power = "sh -c ~/.config/rofi/scripts/powermenu.sh"
 lock_screen = "betterlockscreen -l blur"

@@ -1,20 +1,18 @@
-from themes.core_colorschemes import gruvbox
-
-c = gruvbox
-
-# main colors
-background = c["bg"]
-foreground = c["fg"]
-# borders
-focus_b = c["yellow"]
-normal_b = c["bg"]
-focus_f = c["red"]
-normal_f = c["yellow"]
-# Widget
-active_w = c["fg"]
-inactive_w = c["dark_gray"]
-color_w_groupBox = c["dark_yellow"]
-urgent_w = c["dark_red"]
-###
-warning = c["red"]
-groupbox_background = c["bg0"]
+# themes/gruvbox.py
+theme = {
+    "colors": {
+        "bg": "#282828",
+        "fg": "#ebdbb2",
+        "black": "#3c3836",
+        "red": "#fb4934",
+        "green": "#b8bb26",
+        "yellow": "#fabd2f",
+        "blue": "#83a598",
+        "magenta": "#d3869b",
+        "cyan": "#8ec07c",
+        "white": "#928374",
+        "gray": "#504945",
+    },
+    "border_focus": "#b8bb26",
+    "border_normal": "#504945",
+}

@@ -123,6 +123,25 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 eval "$(zoxide init zsh)"
 export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934'
 
+
 eval "$(fzf --zsh)"
 export JAVA_HOME=/usr/lib/jvm/java-22-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
+export QT_QPA_PLATFORMTHEME="kde"
+export XDG_CURRENT_DESKTOP="KDE"
+source /usr/share/nvm/init-nvm.sh
+export FZF_DEFAULT_OPTS="
+    --color=fg:#d3c6aa,bg:#2b3339,hl:#a7c080
+    --color=fg+:#d3c6aa,bg+:#323d43,hl+:#d699b6
+    --color=info:#7fbbb3,prompt:#d699b6,pointer:#a7c080
+    --color=marker:#a7c080,spinner:#d699b6,header:#83c092
+"
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+

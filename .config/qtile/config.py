@@ -36,8 +36,11 @@ terminal = options.terminal
 web_browser = options.web_browser
 file_manager = options.file_manager
 notify_cmd = options.notify_cmd
-colorscheme_module_path = f"themes.{options.default_colorscheme}"
-colors = load_module(colorscheme_module_path)
+
+colorscheme_module_path = f"themes.{
+    getattr(options, 'default_colorscheme', 'gruvbox')}"
+theme = load_module(colorscheme_module_path)
+colors = theme.colors  # type: ignore
 
 widget_defaults = widget_defaults
 rofi_drun = options.rofi_drun

@@ -1,0 +1,36 @@
+swipe:
+  3:
+    left:
+      # Switch to the previous workspace
+      command: "qtile cmd-obj -o screen -f next_group"
+    right:
+      # Switch to the next workspace
+      command: "qtile cmd-obj -o screen -f prev_group"
+    up:
+      # Maximize the current window
+      command: "qtile cmd-obj -o layout -f maximize"
+    down:
+      # Minimize the current window (if implemented in your layout)
+      command: "qtile cmd-obj -o layout -f minimize"
+
+pinch:
+  in:
+    # Open application launcher (e.g., rofi or dmenu)
+    command: "qtile cmd-obj -o cmd -f spawn -a 'rofi -show drun'"
+  out:
+    # Close the current window
+    command: "qtile cmd-obj -o window -f kill"
+
+threshold:
+  swipe: 1.0  # Adjust sensitivity for swipe gestures
+  pinch: 0.5  # Adjust sensitivity for pinch gestures
+
+interval:
+  swipe: 0.8
+  pinch: 0.1
+
+devices:
+  # Specify your input device if necessary
+  # Use `libinput list-devices` to find the correct device name
+  - name: "ELAN06C7:00 04F3:3193 Touchpad"
+
