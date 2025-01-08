@@ -1,5 +1,8 @@
 #!/bin/sh
 
+export XDG_CURRENT_DESKTOP=KDE
+export QT_QPA_PLATFORMTHEME=kde
+export XDG_MENU_PREFIX=plasma-
 # Monitor Configuaration script
 sh ~/.screenlayout/monitorSetup.sh &
 # AutoConnect Alexa
@@ -20,7 +23,7 @@ nm-applet &
 # Bluetooth applet
 blueman-applet &
 # Volume control applet
-# pasystray &
+pasystray &
 # Bluelight filter
 redshift-gtk &
 

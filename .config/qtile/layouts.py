@@ -2,6 +2,7 @@ from libqtile import layout
 from helpers import load_module
 from libqtile.config import Match
 import options
+
 # type: ignore
 colorscheme_module_path = f"themes.{
     getattr(options, 'default_colorscheme', 'gruvbox')}"
@@ -29,7 +30,7 @@ layouts = [
         border_width=3,
         margin=gaps_size,
         margin_on_single=0,
-        border_on_single=0
+        border_on_single=0,
     ),
     layout.Max(**layout_defaults),
     layout.MonadTall(
@@ -74,6 +75,7 @@ floating_layout = layout.Floating(
         Match(wm_class="download"),
         Match(wm_class="error"),
         Match(wm_class="file_progress"),
+        Match(wm_class="Arandr"),
         Match(wm_class="notification"),
         Match(wm_class="splash"),
         Match(wm_class="toolbar"),

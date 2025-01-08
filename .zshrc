@@ -128,7 +128,10 @@ eval "$(fzf --zsh)"
 export JAVA_HOME=/usr/lib/jvm/java-22-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
 export QT_QPA_PLATFORMTHEME="kde"
+export QT_STYLE_OVERRIDE="kvantum"
 export XDG_CURRENT_DESKTOP="KDE"
+export XDG_DESKTOP_SESSION="KDE"
+export XDG_MENU_PREFIX=plasma-
 source /usr/share/nvm/init-nvm.sh
 export FZF_DEFAULT_OPTS="
     --color=fg:#d3c6aa,bg:#2b3339,hl:#a7c080

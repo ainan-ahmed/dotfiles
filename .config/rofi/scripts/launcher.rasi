@@ -23,20 +23,22 @@ configuration {
 @import "~/.config/rofi/config.rasi"
 
 * {
-  font: "Iosevka Nerd Font Mono Bold 15";
+  font: "Iosevka Nerd Font Mono Bold 13";
 }
 
 window {
   /* properties for window widget */
   location: center;
   anchor: center;
-  fullscreen: true;
+  fullscreen: false;
 
   // 1 field: all
   // 2 fields: top&bottom left&right
   // 3 fields: top, left&right, bottom
   // 4 fields: top, right, bottom, left
-  padding: 180px 580px 220px 580px;
+  width: 40%;
+  height: 70%;
+  padding: 20px;
 
   transparency: "real";
   background-color: var(transparent);

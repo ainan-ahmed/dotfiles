@@ -16,8 +16,8 @@
 import os
 import subprocess
 import options
-from libqtile import bar, layout, qtile, widget, hook
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile import layout, qtile, widget, hook
+from libqtile.config import Click, Drag, Group, Key, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from helpers import load_module
 from qtile_bar import screens, widget_defaults
@@ -101,16 +101,14 @@ keys = [
     # Key([mod, "control"], "k", lazy.layout.grow()),
     # Key([mod, "control"], "j", lazy.layout.shrink()),
     ############
-    # Uncomment this block depending on Layout. Check docs for supported function for the selected layout.
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    # Key([mod, "control"], "h", lazy.layout.grow_left(),
-    #     desc="Grow window to the left"),
-    # Key([mod, "control"], "l", lazy.layout.grow_right(),
-    #     desc="Grow window to the right"),
-    # Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    # Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    # Block ends here
+    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+    Key(
+        [mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
+    ),
+    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
+    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key(
         [mod, "shift"],
         "n",
@@ -177,6 +175,7 @@ keys = [
         lazy.spawn(notify_cmd + ' "Exiting Qtile..."'),
         desc="Shutdown Qtile",
     ),
+    Key([mod, "shift"], "comma", lazy.next_screen(), desc="Next monitor"),
     # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "d", lazy.spawn(rofi_drun), desc="run rofi as dmenu"),
     # Lockscreen
@@ -298,7 +297,22 @@ for i in groups:
         ]
     )
 
+groups.append(
+    ScratchPad(
+        "scratchpad",
+        [
+            DropDown(
+                "mixer", "pavucontrol", width=0.4, height=0.6, x=0.3, y=0.2, opacity=1
+            ),
+        ],
+    )
+)
 
+# SCRATCH PAD KEYBINDINGS
+scratch_keys = [
+    Key([mod2], "F1", lazy.group["scratchpad"].dropdown_toggle("mixer")),
+]
+keys.extend(scratch_keys)
 #############################################
 
 ######## CONFIGURATION VARIABLES ############
@@ -313,7 +327,7 @@ dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
 bring_front_click = "floating_only"
 floats_kept_above = True
-cursor_warp = False
+cursor_warp = True
 
 # If a window requests to be fullscreen, it is automatically fullscreened.
 # Set this to false if you only want windows to be fullscreen if you ask them to be.
