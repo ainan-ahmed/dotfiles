@@ -23,7 +23,7 @@ configuration {
 @import "~/.config/rofi/config.rasi"
 
 * {
-  font: "Iosevka Nerd Font Mono Bold 13";
+  font: "JetbrainsMono Nerd Bold 13";
 }
 
 window {
@@ -37,7 +37,7 @@ window {
   // 3 fields: top, left&right, bottom
   // 4 fields: top, right, bottom, left
   width: 40%;
-  height: 70%;
+  height: 50%;
   padding: 20px;
 
   transparency: "real";
@@ -47,7 +47,7 @@ window {
 mainbox {
   children: [ "inputbar", "listview" ];
 
-  padding: 40px 40px 30px 40px;
+  padding: 10px;
   border: 1px 1px 4px 1px;
 
   text-color: var(foreground);
