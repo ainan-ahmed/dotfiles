@@ -98,6 +98,8 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting virtualenv fzf)
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 source $ZSH/oh-my-zsh.sh
+
+source ~/.bash_profile
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -125,7 +127,7 @@ export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#9283
 
 
 eval "$(fzf --zsh)"
-export JAVA_HOME=/usr/lib/jvm/java-22-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-23-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
 export QT_QPA_PLATFORMTHEME="kde"
 export QT_STYLE_OVERRIDE="kvantum"
@@ -147,4 +149,4 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
-
+#export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1

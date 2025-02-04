@@ -37,8 +37,7 @@ web_browser = options.web_browser
 file_manager = options.file_manager
 notify_cmd = options.notify_cmd
 
-colorscheme_module_path = f"themes.{
-    getattr(options, 'default_colorscheme', 'gruvbox')}"
+colorscheme_module_path = f"themes.{getattr(options, 'default_colorscheme', 'gruvbox')}"
 theme = load_module(colorscheme_module_path)
 colors = theme.colors  # type: ignore
 
@@ -187,19 +186,19 @@ keys = [
     Key(
         [],
         "XF86AudioLowerVolume",
-        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%"),
+        lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%- --limit 1.0"),
         desc="Lower Volume by 10%",
     ),
     Key(
         [],
         "XF86AudioRaiseVolume",
-        lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%"),
+        lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+ --limit 1.0"),
         desc="Raise volume by 10%",
     ),
     Key(
         [],
         "XF86AudioMute",
-        lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"),
+        lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
         desc="Mute/Unmute volume",
     ),
     Key(

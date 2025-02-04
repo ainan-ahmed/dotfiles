@@ -7,8 +7,7 @@ import options
 from libqtile.lazy import lazy
 from qtile_extras.widget.decorations import PowerLineDecoration, RectDecoration
 
-colorscheme_module_path = f"themes.{
-    getattr(options, 'default_colorscheme', 'gruvbox')}"
+colorscheme_module_path = f"themes.{getattr(options, 'default_colorscheme', 'gruvbox')}"
 theme = load_module(colorscheme_module_path)
 print(theme)
 colors = theme.colors  # type: ignore
@@ -47,9 +46,9 @@ screens = [
                     foreground=colors["green"],
                     background=colors["bg"],
                     this_current_screen_border=colors["green"],
-                    # this_screen_border=colors["yellow"],
+                    this_screen_border=colors["green"],
                     other_current_screen_border=colors["magenta"],
-                    # other_screen_border=colors.color_w_groupBox,
+                    # other_screen_border=colors["magenta"],
                     urgent_border=colors["red"],
                     rounded=True,
                     disable_drag=True,
@@ -71,6 +70,16 @@ screens = [
                     background=colors["bg"],
                 ),
                 widget.Spacer(),
+                widget.UPowerWidget(),
+                widget.ALSAWidget(
+                    mode="popup",
+                    limit_loud=100,
+                    popup_hide_timeout=2,
+                    update_interval=1,
+                ),
+                widget.BrightnessControl(
+                    mode="popup",
+                ),
                 widget.Systray(
                     background=colors["bg"], icon_size=16, foreground=colors["green"]
                 ),

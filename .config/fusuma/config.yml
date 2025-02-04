@@ -17,9 +17,6 @@ pinch:
   in:
     # Open application launcher (e.g., rofi or dmenu)
     command: "qtile cmd-obj -o cmd -f spawn -a 'rofi -show drun'"
-  out:
-    # Close the current window
-    command: "qtile cmd-obj -o window -f kill"
 
 threshold:
   swipe: 1.0  # Adjust sensitivity for swipe gestures

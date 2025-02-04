@@ -4,8 +4,7 @@ from libqtile.config import Match
 import options
 
 # type: ignore
-colorscheme_module_path = f"themes.{
-    getattr(options, 'default_colorscheme', 'gruvbox')}"
+colorscheme_module_path = f"themes.{getattr(options, 'default_colorscheme', 'gruvbox')}"
 theme = load_module(colorscheme_module_path)
 colors = theme.colors  # type: ignore
 # print(colors.client_colors)
@@ -31,6 +30,7 @@ layouts = [
         margin=gaps_size,
         margin_on_single=0,
         border_on_single=0,
+        ration=1.6,
     ),
     layout.Max(**layout_defaults),
     layout.MonadTall(
