@@ -1,22 +1,22 @@
-from functions import power, toggle_program
-from helpers import load_module
 from libqtile import bar
 from libqtile.config import Screen
 from qtile_extras import widget
-import options
 from libqtile.lazy import lazy
-from qtile_extras.widget.decorations import PowerLineDecoration, RectDecoration
+from functions import power
+from helpers import load_module
+import options
+
 
 colorscheme_module_path = f"themes.{getattr(options, 'default_colorscheme', 'gruvbox')}"
 theme = load_module(colorscheme_module_path)
-print(theme)
+# print(theme)
 colors = theme.colors  # type: ignore
 widget_defaults = dict(
     font=options.system_font,
     fontsize=13,
     padding=3,
     background=colors["bg"],
-    foreground=colors["green"],
+    foreground=colors["red"],
 )
 extension_defaults = widget_defaults.copy()
 screens = [
@@ -39,17 +39,17 @@ screens = [
                     # fontsize=15,
                     borderwidth=4,
                     highlight_method="line",
-                    active=colors["green"],
+                    active=colors["red"],
                     # block_highlight_text_color=colors["fg"],
                     highlight_color=colors["bg"],
-                    inactive=colors["gray"],
-                    foreground=colors["green"],
+                    inactive=colors["fg_gutter"],
+                    foreground=colors["red"],
                     background=colors["bg"],
-                    this_current_screen_border=colors["green"],
-                    this_screen_border=colors["green"],
+                    this_current_screen_border=colors["red"],
+                    this_screen_border=colors["red"],
                     other_current_screen_border=colors["magenta"],
                     # other_screen_border=colors["magenta"],
-                    urgent_border=colors["red"],
+                    urgent_border=colors["yellow"],
                     rounded=True,
                     disable_drag=True,
                 ),
@@ -66,7 +66,7 @@ screens = [
                 widget.Clock(
                     format="%d.%m.%Y %a %I:%M %p",
                     fontSize=15,
-                    foreground=colors["green"],
+                    foreground=colors["red"],
                     background=colors["bg"],
                 ),
                 widget.Spacer(),
@@ -77,11 +77,11 @@ screens = [
                     popup_hide_timeout=2,
                     update_interval=1,
                 ),
-                widget.BrightnessControl(
-                    mode="popup",
-                ),
+                #  widget.BrightnessControl(
+                #       mode="popup",
+                #   ),
                 widget.Systray(
-                    background=colors["bg"], icon_size=16, foreground=colors["green"]
+                    background=colors["bg"], icon_size=16, foreground=colors["red"]
                 ),
                 widget.Spacer(length=-5),
                 widget.TextBox(
@@ -98,7 +98,7 @@ screens = [
             ],
             size=25,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            border_color=colors["green"],
+            border_color=colors["red"],
             background=colors["bg"],
         ),
         # You can uncomment this variable if you see that on X11 floating resize/moving is laggy

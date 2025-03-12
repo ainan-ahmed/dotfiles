@@ -1,4 +1,4 @@
-default_colorscheme = "everforest"
+default_colorscheme = "rose_pine"
 gaps_size = 8
 mod = "mod4"  # Super key
 mod2 = "mod1"  # Alt key

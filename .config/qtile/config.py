@@ -15,13 +15,15 @@
 
 import os
 import subprocess
-import options
-from libqtile import layout, qtile, widget, hook
-from libqtile.config import Click, Drag, Group, Key, ScratchPad, DropDown
 from libqtile.lazy import lazy
+from libqtile import hook
+from libqtile.config import Click, Drag, Group, Key, ScratchPad, DropDown
+import options
 from helpers import load_module
-from qtile_bar import screens, widget_defaults
 from layouts import layouts, floating_layout
+
+# import layouts
+from qtile_bar import widget_defaults, screens
 # from libqtile.utils import guess_terminal
 
 #############################################

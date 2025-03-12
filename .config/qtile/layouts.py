@@ -19,8 +19,8 @@ layout_defaults = dict(
     border_normal=theme.border_normal,  # type: ignore
 )
 floating_defaults = dict(
-    border_focus=colors["red"],
-    border_normal=colors["yellow"],
+    border_focus=colors["blue"],
+    border_normal=colors["green"],
 )
 
 layouts = [
@@ -30,7 +30,7 @@ layouts = [
         margin=gaps_size,
         margin_on_single=0,
         border_on_single=0,
-        ration=1.6,
+        ratio=1.6,
     ),
     layout.Max(**layout_defaults),
     layout.MonadTall(
@@ -68,6 +68,7 @@ floating_layout = layout.Floating(
         Match(wm_class="Nitrogen"),
         Match(wm_class="Pavucontrol"),
         Match(title="Bitwarden"),
+        Match(wm_class="Bitwarden"),
         Match(title="Lightdm-gtk-greeter-settings"),
         #
         Match(wm_class="confirm"),

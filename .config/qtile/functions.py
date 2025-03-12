@@ -11,3 +11,4 @@ def toggle_program(qtile, program):
 
 def power():
     qtile.spawn("sh -c ~/.config/rofi/scripts/powermenu.sh")
+
