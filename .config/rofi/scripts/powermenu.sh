@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
-prompt="rofi -dmenu -i -theme ~/.config/rofi/scripts/powermenu.rasi"
+prompt="rofi -dmenu -i "
 
 # variables
 uptime="$(uptime -p | sed -e 's/up //g')"
 host=$(cat /proc/sys/kernel/hostname)
-dwm_pid="$(pidof dwm)"
 
 # options
 shutdown=' Shutdown'
@@ -17,7 +16,7 @@ hibernate='⏾ Hibernate'
 yes=' Yes'
 no=' No'
 
-option="$lock\n$hibernate\n$suspend\n$logout\n$reboot\n$shutdown"
+option="$lock\n$suspend\n$logout\n$reboot\n$hibernate\n$shutdown"
 
 show_options() {
   echo -e "$option" | $prompt -p "$host" -mesg "Uptime: $uptime"
@@ -39,23 +38,9 @@ execute() {
     elif [[ $1 == 'suspend' ]]; then
       systemctl suspend
     elif [[ $1 == 'logout' ]]; then
-      if [[ $wm == 'dwm' ]]; then
-        kill -TERM dwmpid $dwm_pid
-      elif [[ $wm == 'awesome' ]]; then
-        awesome-client 'awesome.quit()'
-      elif [[ $wm == 'openbox' ]]; then
-        openbox --exit
-      elif [[ $wm == 'bspwm' ]]; then
-        bspc quit
-      elif [[ $wm == 'i3' ]]; then
-        i3-msg exit
-      elif [[ $wm == 'plasma' ]]; then
-        qdbus org.kde.ksmserver /KSMServer logout 0 0 0
-      elif [[ $wm == 'wlroots' ]]; then
-        hyprctl dispatch exit
-      elif [[ $wm == 'LG3D' ]]; then
-        qtile cmd-obj -o cmd -f shutdown
-      fi
+      swaymsg exit
+    elif [[ $1 == 'lock' ]]; then
+      swaylock -f -F -e -k -c 000000
     fi
   else
     exit 0
@@ -66,7 +51,7 @@ select="$(show_options)"
 
 case $select in
 $lock)
-  slock
+  execute lock
   ;;
 $hibernate)
   execute hibernate

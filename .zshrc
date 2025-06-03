@@ -104,14 +104,15 @@ source ~/.bash_profile
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # neofetch
-alias pym="python manage.py"
-alias dpm="docker-compose exec backend python manage.py"
-alias dcu="docker-compose up"
-alias dcd="docker-compose down"
 alias vim="nvim"
 alias pacsize_top10="expac -H M '%m\t%n' | sort -hr | head -10"
+alias swaymsgAllWindow="swaymsg -t get_tree | jq -r"
 alias ls="eza --color=always --icons=always --long --git --no-permissions --no-user --no-time  --group-directories-first"
 alias cd="z"
+alias dcu="docker-compose up"
+alias dcd="docker-compose down"
+alias lzd="lazydocker"
+alias lzg="lazygit"
 zstyle ':completion:*' completer _expand_alias _complete _ignored
 export EDITOR=/usr/bin/nvim
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
@@ -123,24 +124,17 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 eval "$(zoxide init zsh)"
-export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934'
 
 
 eval "$(fzf --zsh)"
-export JAVA_HOME=/usr/lib/jvm/java-23-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
-export QT_QPA_PLATFORMTHEME="kde"
-export QT_STYLE_OVERRIDE="kvantum"
-export XDG_CURRENT_DESKTOP="KDE"
-export XDG_DESKTOP_SESSION="KDE"
-export XDG_MENU_PREFIX=plasma-
 source /usr/share/nvm/init-nvm.sh
 export FZF_DEFAULT_OPTS="
-	--color=fg:#908caa,bg:#191724,hl:#ebbcba
-	--color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba
-	--color=border:#403d52,header:#31748f,gutter:#191724
-	--color=spinner:#f6c177,info:#9ccfd8
-	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+	--color=bg:#1d2021,bg+:#282828,spinner:#8ec07c,hl:#83a598
+	--color=fg:#bdae93,header:#83a598,info:#fabd2f,pointer:#8ec07c
+	--color=marker:#8ec07c,fg+:#d5c4a1,prompt:#fabd2f,hl+:#83a598"
+
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -149,7 +143,7 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
-#export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
 alias lzd='lazydocker'
 #!/bin/sh
 if [ "$TERM" = "linux" ]; then
@@ -174,3 +168,6 @@ if [ "$TERM" = "linux" ]; then
 	# get rid of artifacts
 	clear
 fi
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh

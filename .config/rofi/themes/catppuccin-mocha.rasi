@@ -8,6 +8,7 @@
     fg-col2: #f38ba8;
     grey: #6c7086;
     tropical-violet: #caa9e0;
+    rose-pine-love: #eb6f92;
 
     width: 600;
     font: "JetBrainsMono Nerd Font 14";
@@ -37,7 +38,7 @@ inputbar {
 }
 
 prompt {
-    background-color: @tropical-violet;
+    background-color: @rose-pine-love;
     padding: 6px;
     text-color: @bg-col;
     border-radius: 3px;
@@ -76,7 +77,7 @@ element-icon {
 }
 
 element selected {
-    background-color:  @tropical-violet ;
+    background-color:  @rose-pine-love ;
     text-color: @bg-col  ;
 }
 
