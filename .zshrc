@@ -74,7 +74,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions fast-syntax-highlighting zsh-autocomplete virtualenv fzf)
+plugins=(git zsh-autosuggestions fast-syntax-highlighting virtualenv fzf)
 
 
 
@@ -125,7 +125,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 eval "$(zoxide init zsh)"
 
-
+export QT_QPA_PLATFORM=wayland
 eval "$(fzf --zsh)"
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
@@ -144,7 +144,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
-alias lzd='lazydocker'
 #!/bin/sh
 if [ "$TERM" = "linux" ]; then
 	/bin/echo -e "
@@ -171,3 +170,14 @@ fi
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/ainan/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/ainan/google-cloud-sdk/path.zsh.inc' ]; then . '/home/ainan/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/ainan/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ainan/google-cloud-sdk/completion.zsh.inc'; fi
