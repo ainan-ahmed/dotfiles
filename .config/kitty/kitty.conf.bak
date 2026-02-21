@@ -1636,7 +1636,7 @@ background_blur 4
 
 #: OS specific tweaks {{{
 
-# wayland_titlebar_color system
+wayland_titlebar_color system
 
 #: The color of the kitty window's titlebar on Wayland systems with
 #: client side window decorations such as GNOME. A value of system
@@ -1740,7 +1740,7 @@ background_blur 4
 #: configuration will change this value only for newly created OS
 #: windows.
 
-# linux_display_server auto
+linux_display_server wayland
 
 #: Choose between Wayland and X11 backends. By default, an appropriate
 #: backend based on the system state is chosen automatically. Set it
@@ -2476,13 +2476,13 @@ background_blur 4
 
 
 # BEGIN_KITTY_THEME
-# Gruvbox Material Dark Hard
+# Noctalia
 include current-theme.conf
 # END_KITTY_THEME
 
 
 # BEGIN_KITTY_FONTS
-font_family      family="Hack"
+font_family      family=Hack postscript_name=Hack-Regular
 bold_font        auto
 italic_font      auto
 bold_italic_font auto

@@ -107,12 +107,14 @@ source ~/.bash_profile
 alias vim="nvim"
 alias pacsize_top10="expac -H M '%m\t%n' | sort -hr | head -10"
 alias swaymsgAllWindow="swaymsg -t get_tree | jq -r"
-alias ls="eza --color=always --icons=always --long --git --no-permissions --no-user --no-time  --group-directories-first"
+alias ls="eza --color=always --icons=always --long --no-permissions --no-user --no-time  --group-directories-first"
 alias cd="z"
 alias dcu="docker-compose up"
 alias dcd="docker-compose down"
 alias lzd="lazydocker"
 alias lzg="lazygit"
+alias kssh="kitten ssh"
+alias CONNECT_DRACULA="kssh -i .ssh/OpenClaw-Home-World_key.pem  ainan@9.223.112.19"
 zstyle ':completion:*' completer _expand_alias _complete _ignored
 export EDITOR=/usr/bin/nvim
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
@@ -127,8 +129,7 @@ eval "$(zoxide init zsh)"
 
 export QT_QPA_PLATFORM=wayland
 eval "$(fzf --zsh)"
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
-export PATH=$JAVA_HOME/bin:$PATH
+export PATH="$JAVA_HOME/bin:$PATH"
 source /usr/share/nvm/init-nvm.sh
 export FZF_DEFAULT_OPTS="
 	--color=bg:#1d2021,bg+:#282828,spinner:#8ec07c,hl:#83a598
@@ -143,7 +144,20 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+export TERM=xterm
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
+export GEMINI_API_KEY="AIzaSyCOlekQ6RDg9e2Z_A20j2JU4g8KCcv76B8"
+export OPENCODE_ENABLE_EXA=1 opencode
+#export OPENAI_API_KEY="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"
+
+#export LANGSMITH_API_KEY="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"
+#LANGSMITH_TRACING_V2=true
+#LANGSMITH_PROJECT="langchain-academy"
+
+#export TAVILY_API_KEY="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"
+#export LANGFUSE_PUBLIC_KEY="pk-lf-4392d6f2-760e-4ae5-84ab-023ce482c705"
+#export LANGFUSE_SECRET_KEY="sk-lf-dcf009f1-72ed-4747-9367-b6cf4ed50dc0"
+#export LANGFUSE_HOST="https://cloud.langfuse.com"
 #!/bin/sh
 if [ "$TERM" = "linux" ]; then
 	/bin/echo -e "
@@ -169,7 +183,6 @@ if [ "$TERM" = "linux" ]; then
 fi
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/ainan/.lmstudio/bin"
