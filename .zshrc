@@ -146,18 +146,8 @@ function y() {
 }
 export TERM=xterm
 export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
-export GEMINI_API_KEY="AIzaSyCOlekQ6RDg9e2Z_A20j2JU4g8KCcv76B8"
 export OPENCODE_ENABLE_EXA=1 opencode
-#export OPENAI_API_KEY="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"
 
-#export LANGSMITH_API_KEY="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"
-#LANGSMITH_TRACING_V2=true
-#LANGSMITH_PROJECT="langchain-academy"
-
-#export TAVILY_API_KEY="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"
-#export LANGFUSE_PUBLIC_KEY="pk-lf-4392d6f2-760e-4ae5-84ab-023ce482c705"
-#export LANGFUSE_SECRET_KEY="sk-lf-dcf009f1-72ed-4747-9367-b6cf4ed50dc0"
-#export LANGFUSE_HOST="https://cloud.langfuse.com"
 #!/bin/sh
 if [ "$TERM" = "linux" ]; then
 	/bin/echo -e "
